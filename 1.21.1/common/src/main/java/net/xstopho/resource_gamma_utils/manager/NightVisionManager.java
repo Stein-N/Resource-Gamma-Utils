@@ -154,14 +154,14 @@ public class NightVisionManager {
         }
     }
 
-    protected static void toggleDynamicNightVision() {
+    public static void toggleDynamicNightVision() {
         boolean newStatus = !NightVisionConfig.isDynamicNightVisionEnabled();
         NightVisionConfig.setDynamicNightVisionStatus(newStatus);
         Component message = Component.translatable("text.resource_gamma_utils.message.dynamicNightVision" + (newStatus ? "On" : "Off"));
         MessageUtil.sendMessage(message);
     }
 
-    protected static void toggleStatusEffect() {
+    public static void toggleStatusEffect() {
         boolean newStatus = !NightVisionConfig.isStatusEffectEnabled();
         NightVisionConfig.setStatusEffectStatus(newStatus);
         MobEffectManager.updateNightVisionEffect();
@@ -169,7 +169,7 @@ public class NightVisionManager {
         MessageUtil.sendMessage(message);
     }
 
-    protected static void toggleSmoothTransition() {
+    public static void toggleSmoothTransition() {
         boolean newStatus = !NightVisionConfig.isSmoothTransitionEnabled();
         NightVisionConfig.setSmoothTransitionStatus(newStatus);
         Component message = Component.translatable("text.resource_gamma_utils.message.transitionNightVision" + (newStatus ? "On" : "Off"));

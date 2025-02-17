@@ -116,14 +116,14 @@ public class GammaManager {
         }
     }
 
-    protected static void toggleDynamicGamma() {
+    public static void toggleDynamicGamma() {
         boolean newStatus = !GammaConfig.isDynamicGammaEnabled();
         GammaConfig.setDynamicGammaStatus(newStatus);
         Component message = Component.translatable("text.resource_gamma_utils.message.dynamicGamma" + (newStatus ? "On" : "Off"));
         MessageUtil.sendMessage(message);
     }
 
-    protected static void toggleStatusEffect() {
+    public static void toggleStatusEffect() {
         boolean newStatus = !GammaConfig.isStatusEffectEnabled();
         GammaConfig.setStatusEffectStatus(newStatus);
         MobEffectManager.updateGammaEffect();
@@ -131,7 +131,7 @@ public class GammaManager {
         MessageUtil.sendMessage(message);
     }
 
-    protected static void toggleSmoothTransition() {
+    public static void toggleSmoothTransition() {
         boolean newStatus = !GammaConfig.isSmoothTransitionEnabled();
         GammaConfig.setSmoothTransitionStatus(newStatus);
         Component message = Component.translatable("text.resource_gamma_utils.message.transitionGamma" + (newStatus ? "On" : "Off"));

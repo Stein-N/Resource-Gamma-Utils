@@ -7,6 +7,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.xstopho.resource_gamma_utils.config.GammaConfig;
 import net.xstopho.resource_gamma_utils.config.NightVisionConfig;
 import net.xstopho.resource_gamma_utils.manager.GammaManager;
+import net.xstopho.resource_gamma_utils.manager.NightVisionManager;
 
 public class MessageUtil {
     private static final Minecraft client = Minecraft.getInstance();
