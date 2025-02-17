@@ -18,6 +18,12 @@
     "fabric-api": "*",
     "fabricloader": "*",
     "minecraft": "*",
-    "java": ">=21"
+    "java": ">=21",
+    "resourceconfigapi": ">=${resource_config_api}"
+  },
+  "custom": {
+    "modmenu": {
+      "update-checker": true
+    }
   }
 }

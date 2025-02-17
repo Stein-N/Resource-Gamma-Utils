@@ -3,6 +3,10 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+dependencies {
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
+}
+
 neoForge {
     version = neoforge_version
 
