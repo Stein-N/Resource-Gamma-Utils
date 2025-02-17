@@ -26,6 +26,9 @@ public class GammaConfig {
     @ConfigEntry
     public static boolean resetOnClose = false;
 
+    @ConfigEntry
+    public static boolean showHudMessage = true;
+
     @ConfigEntry(category = "Transition")
     public static boolean smoothTransition = false;
 
@@ -73,99 +76,103 @@ public class GammaConfig {
     @ConfigEntry(category = "Limiter")
     public static int maxGammaLimiter = 1500;
 
-    public double getDefaultStrength() {
+    public static double getDefaultStrength() {
         return defaultGamma / 100.0;
     }
 
-    public double getToggledStrength() {
+    public static double getToggledStrength() {
         return toggledGamma / 100.0;
     }
 
-    public void setToggledStrength(double newValue) {
+    public static void setToggledStrength(double newValue) {
         toggledGamma = (int)Math.round(newValue * 100);
     }
 
-    public boolean isToggleUpdateEnabled() {
+    public static boolean isToggleUpdateEnabled() {
         return updateToggle;
     }
 
-    public double getStepStrength() {
+    public static double getStepStrength() {
         return gammaStep / 100.0;
     }
 
-    public boolean isSmoothTransitionEnabled() {
+    public static boolean isSmoothTransitionEnabled() {
         return smoothTransition;
     }
 
-    public void setSmoothTransitionStatus(boolean status) {
+    public static void setSmoothTransitionStatus(boolean status) {
         smoothTransition = status;
     }
 
-    public double getTransitionSpeed(boolean dynamic) {
+    public static double getTransitionSpeed(boolean dynamic) {
         return (dynamic ? dynamicTransitionSpeed : transitionSpeed) / 100.0;
     }
 
-    public boolean isStatusEffectEnabled() {
+    public static boolean isStatusEffectEnabled() {
         return showStatusEffect;
     }
 
-    public void setStatusEffectStatus(boolean status) {
+    public static void setStatusEffectStatus(boolean status) {
         showStatusEffect = status;
     }
 
-    public boolean isResetOnCloseEnabled() {
+    public static boolean isResetOnCloseEnabled() {
         return resetOnClose;
     }
 
-    public boolean isLimiterEnabled() {
+    public static boolean isLimiterEnabled() {
         return limitCheck;
     }
 
-    public double getMinimumStrength() {
+    public static double getMinimumStrength() {
         return minGammaLimiter / 100.0;
     }
 
-    public double getMaximumStrength() {
+    public static double getMaximumStrength() {
         return maxGammaLimiter / 100.0;
     }
 
-    public boolean isDimensionPreferenceEnabled() {
+    public static boolean isDimensionPreferenceEnabled() {
         return enableDimensionPreference;
     }
 
-    public double getOverworldPreference() {
+    public static double getOverworldPreference() {
         return overworldPreference / 100.0;
     }
 
-    public double getNetherPreference() {
+    public static double getNetherPreference() {
         return netherPreference / 100.0;
     }
 
-    public double getEndPreference() {
+    public static double getEndPreference() {
         return endPreference / 100.0;
     }
 
-    public boolean isDynamicGammaEnabled() {
+    public static boolean isDynamicGammaEnabled() {
         return enableDynamicGamma;
     }
 
-    public void setDynamicGammaStatus(boolean status) {
+    public static void setDynamicGammaStatus(boolean status) {
         enableDynamicGamma = status;
     }
 
-    public double getMinDynamicStrength() {
+    public static double getMinDynamicStrength() {
         return minGamma / 100.0;
     }
 
-    public double getMaxDynamicStrength() {
+    public static double getMaxDynamicStrength() {
         return maxGamma / 100.0;
     }
 
-    public int getDynamicAveragingLightRange() {
+    public static int getDynamicAveragingLightRange() {
         return averagingLightRange;
     }
 
-    public float getSkyBrightnessOverride() {
+    public static float getSkyBrightnessOverride() {
         return skyBrightnessOverride / 100f;
+    }
+
+    public static boolean showHudMessage() {
+        return showHudMessage;
     }
 }

@@ -27,6 +27,9 @@ public class NightVisionConfig {
     @ConfigEntry
     public static boolean resetOnClose = false;
 
+    @ConfigEntry
+    public static boolean showHudMessage = true;
+
     @ConfigEntry(category = "Transition")
     public static boolean smoothTransition = false;
 
@@ -74,111 +77,115 @@ public class NightVisionConfig {
     @ConfigEntry(category = "Limiter")
     public static int maxNightVisionLimiter = 100;
 
-    public void setStatus(boolean status) {
+    public static void setStatus(boolean status) {
         nightVisionEnabled = status;
     }
 
-    public boolean isEnabled() {
+    public static boolean isEnabled() {
         return nightVisionEnabled;
     }
 
-    public double getStrength() {
+    public static double getStrength() {
         return nightVisionStrength;
     }
 
-    public void setStrength(double newValue) {
+    public static void setStrength(double newValue) {
         nightVisionStrength = newValue;
     }
 
-    public int getToggledStrength() {
+    public static int getToggledStrength() {
         return toggledNightVision;
     }
 
-    public void setToggledStrength(int newValue) {
+    public static void setToggledStrength(int newValue) {
         toggledNightVision = newValue;
     }
 
-    public boolean isToggleUpdateEnabled() {
+    public static boolean isToggleUpdateEnabled() {
         return updateToggle;
     }
 
-    public int getStepStrength() {
+    public static int getStepStrength() {
         return nightVisionStep;
     }
 
-    public boolean isSmoothTransitionEnabled() {
+    public static boolean isSmoothTransitionEnabled() {
         return smoothTransition;
     }
 
-    public void setSmoothTransitionStatus(boolean status) {
+    public static void setSmoothTransitionStatus(boolean status) {
         smoothTransition = status;
     }
 
-    public double getTransitionSpeed(boolean dynamic) {
+    public static double getTransitionSpeed(boolean dynamic) {
         return dynamic ? dynamicTransitionSpeed : transitionSpeed;
     }
 
-    public boolean isLimiterEnabled() {
+    public static boolean isLimiterEnabled() {
         return limitCheck;
     }
 
-    public int getMaximumStrength() {
+    public static int getMaximumStrength() {
         return maxNightVisionLimiter;
     }
 
-    public int getMinimumStrength() {
+    public static int getMinimumStrength() {
         return minNightVisionLimiter;
     }
 
-    public boolean isStatusEffectEnabled() {
+    public static boolean isStatusEffectEnabled() {
         return showStatusEffect;
     }
 
-    public void setStatusEffectStatus(boolean status) {
+    public static void setStatusEffectStatus(boolean status) {
         showStatusEffect = status;
     }
 
-    public boolean isResetOnCloseEnabled() {
+    public static boolean isResetOnCloseEnabled() {
         return resetOnClose;
     }
 
-    public boolean isDimensionPreferenceEnabled() {
+    public static boolean isDimensionPreferenceEnabled() {
         return enableDimensionPreference;
     }
 
-    public int getOverworldPreference() {
+    public static int getOverworldPreference() {
         return overworldPreference;
     }
 
-    public int getNetherPreference() {
+    public static int getNetherPreference() {
         return netherPreference;
     }
 
-    public int getEndPreference() {
+    public static int getEndPreference() {
         return endPreference;
     }
 
-    public boolean isDynamicNightVisionEnabled() {
+    public static boolean isDynamicNightVisionEnabled() {
         return enableDynamicNightVision;
     }
 
-    public void setDynamicNightVisionStatus(boolean status) {
+    public static void setDynamicNightVisionStatus(boolean status) {
         enableDynamicNightVision = status;
     }
 
-    public int getMinDynamicStrength() {
+    public static int getMinDynamicStrength() {
         return minNightVision;
     }
 
-    public int getMaxDynamicStrength() {
+    public static int getMaxDynamicStrength() {
         return maxNightVision;
     }
 
-    public int getDynamicAveragingLightRange() {
+    public static int getDynamicAveragingLightRange() {
         return averagingLightRange;
     }
 
-    public float getSkyBrightnessOverride() {
+    public static float getSkyBrightnessOverride() {
         return skyBrightnessOverride / 100f;
+    }
+
+    public static boolean showHudMessage() {
+        return showHudMessage;
     }
 }
