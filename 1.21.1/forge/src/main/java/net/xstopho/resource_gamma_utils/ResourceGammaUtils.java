@@ -7,6 +7,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ResourceGammaUtils {
 
     public ResourceGammaUtils(FMLJavaModLoadingContext context) {
-
+        GammaConstants.commonInit();
     }
 }

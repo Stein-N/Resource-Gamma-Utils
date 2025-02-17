@@ -8,10 +8,8 @@ import net.xstopho.resourceconfigapi.api.ConfigType;
 @Config(fileName = "nightvision", type = ConfigType.CLIENT)
 public class NightVisionConfig {
 
-    @ConfigEntry
     public static boolean nightVisionEnabled = false;
 
-    @ConfigEntry
     public static double nightVisionStrength = 100;
 
     @ConfigEntry

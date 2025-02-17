@@ -7,6 +7,6 @@ import net.neoforged.fml.common.Mod;
 public class ResourceGammaUtils {
 
     public ResourceGammaUtils(IEventBus eventBus) {
-
+        GammaConstants.commonInit();
     }
 }
