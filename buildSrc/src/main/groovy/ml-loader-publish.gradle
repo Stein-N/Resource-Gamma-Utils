@@ -1,0 +1,29 @@
+plugins {
+    id "me.modmuss50.mod-publish-plugin"
+}
+
+publishMods {
+    displayName = file.map { it.asFile.name }
+    type = STABLE
+
+    var changelogFile = rootProject.file('CHANGELOG.md')
+    if (changelogFile.exists()) changelog = changelogFile.text
+    else changelog = 'NO VALID CHANGELOG FILE FOUND!'
+
+    modrinth {
+        accessToken = MODRINTH_API_KEY
+        projectId = modrinth_id
+        minecraftVersions.addAll("1.21")
+    }
+
+    curseforge {
+        accessToken = CURSEFORGE_API_KEY
+        projectId = curseforge_id
+
+        clientRequired = true
+        serverRequired = true
+
+        minecraftVersions.addAll("1.21")
+        javaVersions.add(JavaVersion.VERSION_21)
+    }
+}
