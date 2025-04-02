@@ -10,11 +10,6 @@ public class GammaConstants {
     public static final String MOD_NAME = "Resource Gamma Util";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    private static final String CATEGORY = "resource_gamma_util.key.category";
-    public static final KeyMapping TOGGLE = new KeyMapping(MOD_ID + ".key.toggle", GLFW.GLFW_KEY_F, CATEGORY);
-
-    // KeyMapping
-    // Translation
-    // OptionInstanceMixin
-    // Registration/End_Client_Tick event registration per loader
+    private static final String CATEGORY = MOD_ID + ".key.category";
+    public static final KeyMapping TOGGLE = new KeyMapping(MOD_ID + ".key.toggle", GLFW.GLFW_KEY_H, CATEGORY);
 }
