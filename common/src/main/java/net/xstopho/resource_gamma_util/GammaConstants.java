@@ -1,4 +1,4 @@
-package net.xstopho.resource_gamma_utils;
+package net.xstopho.resource_gamma_util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

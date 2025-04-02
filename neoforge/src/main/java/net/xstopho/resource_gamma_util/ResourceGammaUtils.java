@@ -1,4 +1,4 @@
-package net.xstopho.resource_gamma_utils;
+package net.xstopho.resource_gamma_util;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
