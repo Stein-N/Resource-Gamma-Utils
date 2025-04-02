@@ -13,7 +13,7 @@ publishMods {
     modrinth {
         accessToken = MODRINTH_API_KEY
         projectId = modrinth_id
-        minecraftVersions.addAll("1.21")
+        minecraftVersions.addAll("1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5")
     }
 
     curseforge {
@@ -22,7 +22,7 @@ publishMods {
 
         clientRequired = true
 
-        minecraftVersions.addAll("1.21")
+        minecraftVersions.addAll("1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5")
         javaVersions.add(JavaVersion.VERSION_21)
     }
 }
