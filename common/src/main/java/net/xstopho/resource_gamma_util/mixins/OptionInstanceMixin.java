@@ -20,7 +20,6 @@ public class OptionInstanceMixin<T> {
         if (caption.equals(Component.translatable("options.gamma"))) {
             if (active(this.value)) {
                 this.value = this.backupValue;
-                this.backupValue = null;
             } else {
                 this.backupValue = this.value;
                 this.value = value;
