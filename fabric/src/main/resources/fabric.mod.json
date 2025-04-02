@@ -7,7 +7,7 @@
     "authors": [ "${mod_author}" ],
     "contact": {
         "homepage": "https://github.com/Stein-N",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "sources": "https://github.com/Stein-N/Resource-Gamma-Utils"
     },
     "license": "${mod_license}",
     "icon": "icon.png",
@@ -19,7 +19,7 @@
     "depends": {
         "fabric-api": "*",
         "fabricloader": "*",
-        "minecraft": ">=1.21",
+        "minecraft": ">=1.21 <1.22",
         "java": ">=21"
     }
 }
