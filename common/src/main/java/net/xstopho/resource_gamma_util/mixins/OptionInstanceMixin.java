@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(OptionInstance.class)
 public class OptionInstanceMixin<T> {
 
-    @Shadow @Final @Mutable T value;
+    @Shadow @Final T value;
     @Shadow @Final Component caption;
 
     @Unique T backupValue;
@@ -18,7 +18,7 @@ public class OptionInstanceMixin<T> {
     @Inject(method = "set", at = @At("HEAD"), cancellable = true)
     public void resource_gamma_util$set(T value, CallbackInfo ci) {
         if (caption.equals(Component.translatable("options.gamma"))) {
-            if (active(this.value)) {
+            if (this.value.equals(1500.00)) {
                 this.value = this.backupValue;
             } else {
                 this.backupValue = this.value;
@@ -26,11 +26,5 @@ public class OptionInstanceMixin<T> {
             }
             ci.cancel();
         }
-    }
-
-    @Unique
-    private static boolean active(Object value) {
-        double optionValue = (double) value;
-        return optionValue == 1500;
     }
 }
