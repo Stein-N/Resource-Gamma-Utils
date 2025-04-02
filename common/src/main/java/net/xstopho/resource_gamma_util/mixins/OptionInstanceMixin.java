@@ -18,8 +18,8 @@ public class OptionInstanceMixin<T> {
 
     @Unique T backupValue;
 
-    @Inject(method = "setValue", at = @At("HEAD"), cancellable = true)
-    public void resource_gamma_util$setValue(T value, CallbackInfo ci) {
+    @Inject(method = "set", at = @At("HEAD"), cancellable = true)
+    public void resource_gamma_util$set(T value, CallbackInfo ci) {
         if (caption.equals(Component.translatable("options.gamma"))) {
             if (backupValue == null) {
                 this.backupValue = this.value;
@@ -28,6 +28,7 @@ public class OptionInstanceMixin<T> {
                 this.value = this.backupValue;
                 this.backupValue = null;
             }
+            ci.cancel();
         }
     }
 }

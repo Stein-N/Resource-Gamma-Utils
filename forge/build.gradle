@@ -9,6 +9,10 @@ dependencies {
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 }
 
+mixin {
+    config("${mod_id}.mixins.json")
+}
+
 minecraft {
     mappings channel: 'official', version: minecraft_version
     copyIdeResources = true

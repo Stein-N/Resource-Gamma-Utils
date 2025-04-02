@@ -13,7 +13,7 @@
     "icon": "icon.png",
     "environment": "*",
     "entrypoints": {
-        "client": [ "net.xstopho.resource_gamma_utils.ResourceGammaUtils" ]
+        "client": [ "net.xstopho.resource_gamma_util.ResourceGammaUtils" ]
     },
     "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
