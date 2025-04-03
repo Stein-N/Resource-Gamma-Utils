@@ -8,8 +8,6 @@ base {
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
-    withSourcesJar()
-    withJavadocJar()
 }
 
 repositories {
@@ -20,14 +18,6 @@ repositories {
 
 dependencies {
     implementation 'org.jetbrains:annotations:24.1.0'
-}
-
-tasks.named('javadoc', Javadoc) {
-    options.addStringOption('Xdoclint:none', '-quiet')
-}
-
-tasks.withType(GenerateModuleMetadata).configureEach {
-    enabled = false
 }
 
 jar {
@@ -44,12 +34,6 @@ jar {
                 'Implementation-Version': project.jar.archiveVersion,
                 'Implementation-Vendor' : mod_author
         ])
-    }
-}
-
-sourcesJar {
-    from(rootProject.file("LICENSE")) {
-        rename { "${it}_${mod_name}" }
     }
 }
 

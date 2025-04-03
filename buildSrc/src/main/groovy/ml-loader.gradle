@@ -11,14 +11,6 @@ tasks.named('compileJava', JavaCompile) {
     source(project(':common').sourceSets.main.allSource)
 }
 
-tasks.named('javadoc', Javadoc) {
-    source(project(':common').sourceSets.main.allJava)
-}
-
-tasks.named('sourcesJar', Jar) {
-    from(project(":common").sourceSets.main.allSource)
-}
-
 processResources {
     from project(':common').sourceSets.main.resources
 }
