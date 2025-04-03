@@ -5,3 +5,5 @@
 ### Features:
   - Press `H` to activate Fullbright
   - KeyBind is configurable
+
+![](https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_gamma_utils/resource_gamma_util_example.gif)
