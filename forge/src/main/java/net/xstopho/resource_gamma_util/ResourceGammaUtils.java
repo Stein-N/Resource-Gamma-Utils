@@ -26,9 +26,7 @@ public class ResourceGammaUtils {
 
         @SubscribeEvent
         public static void registerClientEvent(TickEvent.ClientTickEvent event) {
-            if (GammaConstants.TOGGLE.consumeClick()) {
-                Minecraft.getInstance().options.gamma().set(1500.00);
-            }
+            GammaConstants.useHotkey(Minecraft.getInstance());
         }
     }
 }
