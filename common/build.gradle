@@ -8,11 +8,6 @@ neoForge {
 
     var at = file('src/main/resources/META-INF/accesstransformer.cfg')
     if(at.exists()) accessTransformers = [at.absolutePath]
-
-    parchment {
-        minecraftVersion = minecraft_version
-        mappingsVersion = parchment_version
-    }
 }
 
 dependencies {
