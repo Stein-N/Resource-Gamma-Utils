@@ -14,13 +14,6 @@ license = "${mod_license}"
     config = "${mod_id}.mixins.json"
 
 [[dependencies.${mod_id}]]
-    modId = "neoforge"
-    required = true
-    versionRange = "${neoforge_version_range}"
-    ordering = "NONE"
-    side = "BOTH"
-
-[[dependencies.${mod_id}]]
     modId = "minecraft"
     type = "required"
     versionRange = "[1.21, 1.22)"

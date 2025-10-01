@@ -1,19 +1,19 @@
 plugins {
-    id 'ml-loader'
+    id 'loader'
     id 'net.neoforged.moddev'
 }
 
 neoForge {
-    version = neoforge_version
+    version = neoforge
 
-    var at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
-    if (at.exists()) accessTransformers = [at.absolutePath]
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
 
     runs {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
-            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
+            gameDirectory = file("../fabric/runs/${it.name.toLowerCase()}")
         }
         client {
             client()
@@ -26,5 +26,5 @@ neoForge {
 
 publishMods {
     file = jar.archiveFile
-    modLoaders.add("neoforge")
+    modLoaders.addAll("neoforge")
 }

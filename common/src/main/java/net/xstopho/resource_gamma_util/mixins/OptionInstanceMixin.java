@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class OptionInstanceMixin<T> {
 
     @Shadow T value;
-    @Shadow Component caption;
+    @Shadow @Final Component caption;
     @Unique T backup;
 
     @Inject(method = "set", at = @At("HEAD"), cancellable = true)

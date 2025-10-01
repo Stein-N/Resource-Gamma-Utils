@@ -11,13 +11,6 @@ license = "${mod_license}"
     logoFile = "icon.png"
 
 [[dependencies.${mod_id}]]
-    modId = "forge"
-    mandatory = true
-    versionRange = "${forge_version_range}"
-    ordering = "NONE"
-    side = "BOTH"
-
-[[dependencies.${mod_id}]]
     modId = "minecraft"
     mandatory = true
     versionRange = "[1.21, 1.22)"
