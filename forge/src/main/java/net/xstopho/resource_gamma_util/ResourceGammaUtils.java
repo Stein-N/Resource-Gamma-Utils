@@ -19,13 +19,15 @@ public class ResourceGammaUtils {
         public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
             event.register(GammaConstants.TOGGLE);
         }
+
+
     }
 
     @Mod.EventBusSubscriber(modid = GammaConstants.MOD_ID, value = Dist.CLIENT)
     public static class ForgeClientHandler {
 
         @SubscribeEvent
-        public static void registerClientEvent(TickEvent.ClientTickEvent event) {
+        public static void registerClientEvent(TickEvent.ClientTickEvent.Post event) {
             GammaConstants.useHotkey(Minecraft.getInstance());
         }
     }
