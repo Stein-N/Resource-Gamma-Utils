@@ -12,19 +12,13 @@ public class ResourceGammaUtils {
 
     public ResourceGammaUtils() {}
 
-    @Mod.EventBusSubscriber(modid = GammaConstants.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class ModClientHandler {
+    @Mod.EventBusSubscriber(modid = GammaConstants.MOD_ID, value = Dist.CLIENT)
+    public static class ForgeClientHandler {
 
         @SubscribeEvent
         public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
             event.register(GammaConstants.TOGGLE);
         }
-
-
-    }
-
-    @Mod.EventBusSubscriber(modid = GammaConstants.MOD_ID, value = Dist.CLIENT)
-    public static class ForgeClientHandler {
 
         @SubscribeEvent
         public static void registerClientEvent(TickEvent.ClientTickEvent.Post event) {
