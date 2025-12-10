@@ -16,6 +16,7 @@ repositories {
     mavenCentral()
     maven { url 'https://raw.githubusercontent.com/Stein-N/resources/main/maven' }
     maven {url "https://maven.terraformersmc.com/" }
+    maven { url 'https://maven.minecraftforge.net/' }
 }
 
 tasks.named('javadoc', Javadoc) {
@@ -62,7 +63,6 @@ processResources {
             // Loader Keys
             "fabric_api": fabric_api,
             "fabric_loader": fabric_loader,
-            "forge": forge,
             "neoforge": neoforge
 
     ]
