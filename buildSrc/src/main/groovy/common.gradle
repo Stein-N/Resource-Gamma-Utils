@@ -65,8 +65,8 @@ tasks.named('processResources', ProcessResources) {
             // Loader Keys
             "fabric_api": fabric_api,
             "fabric_loader": fabric_loader,
-            "neoforge": neoforge
-
+            "neoforge": neoforge,
+            "forge": forge
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
