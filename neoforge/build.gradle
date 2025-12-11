@@ -13,7 +13,7 @@ neoForge {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
-            gameDirectory = file("../fabric/runs/${it.name.toLowerCase()}")
+            gameDirectory = file("../common/runs/${it.name.toLowerCase()}")
         }
         client {
             client()

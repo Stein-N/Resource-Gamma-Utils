@@ -1,8 +1,6 @@
 plugins {
     id 'loader'
-    id 'net.minecraftforge.accesstransformers' version '5.0.1'
     id 'net.minecraftforge.gradle' version '7.0.0-beta.46'
-    id 'net.minecraftforge.jarjar' version '0.2.3'
 }
 
 
@@ -23,14 +21,12 @@ minecraft {
 
     runs {
         configureEach {
-            workingDir.convention layout.projectDirectory.dir('run')
+            workingDir.convention layout.projectDirectory.dir('../common/runs/client')
 
             //systemProperty 'forge.logging.markers', 'REGISTRIES'
 
             systemProperty 'forge.logging.console.level', 'debug'
-
             systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
-
             args "-mixin.config=${mod_id}.mixins.json"
         }
 
@@ -51,7 +47,13 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "MixinConfigs" : "collective_forge.mixins.json" // mixin
+                "MixinConfigs" : "${mod_id}.mixins.json" // mixin
         ])
     }
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
 }
