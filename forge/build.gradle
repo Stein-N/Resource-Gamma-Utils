@@ -1,54 +1,46 @@
 plugins {
     id 'loader'
-    id 'net.minecraftforge.gradle' version '7.0.0-beta.46'
-}
-
-
-repositories {
-    maven minecraft.mavenizer
-    maven fg.forgeMaven
-    maven fg.minecraftLibsMaven
-
-    maven { url "https://repo.spongepowered.org/maven" }
-
-    mavenCentral()
-    mavenLocal()
-}
-
-
-minecraft {
-    mappings channel: 'official', version: minecraft_version
-
-    runs {
-        configureEach {
-            workingDir.convention layout.projectDirectory.dir('../common/runs/client')
-
-            //systemProperty 'forge.logging.markers', 'REGISTRIES'
-
-            systemProperty 'forge.logging.console.level', 'debug'
-            systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
-            args "-mixin.config=${mod_id}.mixins.json"
-        }
-
-        register('client') {
-            systemProperty 'forge.enabledGameTestNamespaces', mod_id
-        }
-    }
+    id 'net.minecraftforge.gradle'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
 dependencies {
-    implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge}")
-    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.10'
-
-    // Forge's hack fix
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge}"
 }
+
+mixin {
+    config("${mod_id}.mixins.json")
+}
+
 
 jar {
     manifest {
         attributes([
-                "MixinConfigs" : "${mod_id}.mixins.json" // mixin
+                'FMLCorePluginContainsFMLMod': 'true',
+                'MixinConfigs': "${mod_id}.mixins.json"
         ])
+    }
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    reobf = false
+    copyIdeResources = true //Calls processResources when in dev
+
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
+
+    runs {
+        client {
+            workingDirectory file("../common/runs/client")
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName "Client"
+            mods {
+                modClientRun {
+                    source sourceSets.main
+                }
+            }
+        }
     }
 }
 
@@ -56,4 +48,9 @@ sourceSets.each {
     def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
     it.output.resourcesDir = dir
     it.java.destinationDirectory = dir
+}
+
+publishMods {
+    file = jar.archiveFile
+    modLoaders.addAll("forge")
 }
