@@ -1,6 +1,7 @@
 plugins {
     id 'loader'
-    id 'net.minecraftforge.gradle' version '7.0.0-beta.46'
+    id 'net.minecraftforge.jarjar' version '0.2.3'
+    id 'net.minecraftforge.gradle' version '7.0.0-beta.55'
 }
 
 
@@ -27,7 +28,7 @@ minecraft {
 
             systemProperty 'forge.logging.console.level', 'debug'
             systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
-            args "-mixin.config=${mod_id}.mixins.json"
+            args "--mixin.config=${mod_id}.mixins.json"
         }
 
         register('client') {
@@ -39,9 +40,10 @@ minecraft {
 dependencies {
     implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge}")
     annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.10'
+}
 
-    // Forge's hack fix
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
+jarJar.register() {
+    archiveClassifier = null
 }
 
 jar {
