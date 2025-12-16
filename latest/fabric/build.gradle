@@ -30,12 +30,6 @@ loom {
             programArgs('--username', 'Dev')
             runDir("../common/runs/client")
         }
-        server {
-            server()
-            setConfigName("Fabric Server")
-            ideConfigGenerated(true)
-            runDir("../common/runs/server")
-        }
     }
 }
 

@@ -23,10 +23,6 @@ neoForge {
         client {
             client()
         }
-        server {
-            server()
-            programArguments.add('nogui')
-        }
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }

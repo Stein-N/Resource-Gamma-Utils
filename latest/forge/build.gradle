@@ -43,17 +43,6 @@ minecraft {
                 }
             }
         }
-        server {
-            workingDirectory file("../common/runs/server")
-            ideaModule "${rootProject.name}.${directory}.${project.name}.main"
-            taskName "Server"
-            args '--nogui'
-            mods {
-                modServerRun {
-                    source sourceSets.main
-                }
-            }
-        }
     }
 }
 
