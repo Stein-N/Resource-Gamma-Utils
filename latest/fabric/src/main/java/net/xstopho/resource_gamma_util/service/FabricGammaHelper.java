@@ -6,7 +6,7 @@ public class FabricGammaHelper implements IGammaHelper {
     @Override
     public boolean isShaderActive() {
         if (FabricLoader.getInstance().isModLoaded("iris")) {
-            return net.irisshaders.iris.api.v0.IrisApi.getInstance().isShaderPackInUse();
+            return net.irisshaders.iris.api.v0.IrisApi.getInstance().getConfig().areShadersEnabled();
         }
 
         return false;

@@ -6,7 +6,7 @@ public class NeoforgeGammaHelper implements IGammaHelper {
     @Override
     public boolean isShaderActive() {
         if (ModList.get().isLoaded("iris")) {
-            return net.irisshaders.iris.api.v0.IrisApi.getInstance().isShaderPackInUse();
+            return net.irisshaders.iris.api.v0.IrisApi.getInstance().getConfig().areShadersEnabled();
         }
         return false;
     }
