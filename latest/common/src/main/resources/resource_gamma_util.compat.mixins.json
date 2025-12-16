@@ -2,9 +2,10 @@
     "required": true,
     "minVersion": "0.8",
     "package": "net.xstopho.resource_gamma_util.mixins",
+    "plugin": "net.xstopho.resource_gamma_util.mixins.CompatPlugin",
     "compatibilityLevel": "JAVA_21",
     "client": [
-        "OptionInstanceMixin"
+        "IrisMixin"
     ],
     "injectors": {
         "defaultRequire": 1

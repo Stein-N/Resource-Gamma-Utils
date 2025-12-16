@@ -15,7 +15,7 @@ public class CompatPlugin implements IMixinConfigPlugin {
         if (mixinClassName.equals("IrisMixin")) {
             return GammaService.isModLoaded("iris");
         }
-        return false;
+        return true;
     }
 
     @Override
