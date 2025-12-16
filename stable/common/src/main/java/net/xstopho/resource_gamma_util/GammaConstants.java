@@ -3,10 +3,8 @@ package net.xstopho.resource_gamma_util;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Mob;
 import net.xstopho.resource_gamma_util.service.GammaService;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
@@ -25,13 +23,8 @@ public class GammaConstants {
 
     public static void useHotkey(Minecraft client) {
         if (TOGGLE.consumeClick()) {
-            boolean shader = GammaService.isShaderActive();
+            boolean shader = GammaService.isShaderEnabled();
             LocalPlayer p = client.player;
-
-            if (shader && gammaEnabled) {
-                gammaEnabled = false;
-                p.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, -1));
-            }
 
             if (shader) {
                 if (p.hasEffect(MobEffects.NIGHT_VISION)) p.removeEffect(MobEffects.NIGHT_VISION);

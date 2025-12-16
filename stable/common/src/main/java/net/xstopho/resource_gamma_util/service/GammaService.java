@@ -4,8 +4,12 @@ import java.util.ServiceLoader;
 
 public class GammaService {
 
-    public static boolean isShaderActive() {
-        return load(IGammaHelper.class).isShaderActive();
+    public static boolean isModLoaded(String modId) {
+        return load(IGammaHelper.class).isModLoaded(modId);
+    }
+
+    public static boolean isShaderEnabled() {
+        return load(IGammaHelper.class).isShaderEnabled();
     }
 
     private static <T> T load(Class<T> clazz) {

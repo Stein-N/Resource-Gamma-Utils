@@ -5,8 +5,7 @@
     "plugin": "net.xstopho.resource_gamma_util.mixins.CompatPlugin",
     "compatibilityLevel": "JAVA_21",
     "client": [
-        "IrisMixin",
-        "OptionInstanceMixin"
+        "IrisMixin"
     ],
     "injectors": {
         "defaultRequire": 1

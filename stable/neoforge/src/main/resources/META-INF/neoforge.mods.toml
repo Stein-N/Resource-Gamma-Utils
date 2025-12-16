@@ -3,15 +3,17 @@ loaderVersion = "[2,]"
 license = "${mod_license}"
 
 [[mods]]
-    modId = "${mod_id}"
-    version = "${version}"
-    displayName = "${mod_name}"
-    authors = "${mod_author}"
-    description = '''${mod_description}'''
-    logoFile = "icon.png"
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
+authors = "${mod_author}"
+description = '''${mod_description}'''
+logoFile = "icon.png"
 
 [[mixins]]
-    config = "${mod_id}.mixins.json"
+config = "${mod_id}.mixins.json"
+[[mixins]]
+config = "${mod_id}.compat.mixins.json"
 
 [[dependencies.${mod_id}]]
 modId = "neoforge"

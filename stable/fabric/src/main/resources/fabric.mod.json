@@ -15,7 +15,7 @@
     "entrypoints": {
         "client": [ "net.xstopho.resource_gamma_util.ResourceGammaUtils" ]
     },
-    "mixins": [ "${mod_id}.mixins.json" ],
+    "mixins": [ "${mod_id}.mixins.json", "${mod_id}.compat.mixins.json" ],
     "depends": {
         "fabric-api": ">=${fabric_api}",
         "fabricloader": ">=${fabric_loader}",
