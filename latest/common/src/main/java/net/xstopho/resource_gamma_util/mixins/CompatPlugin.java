@@ -1,5 +1,6 @@
 package net.xstopho.resource_gamma_util.mixins;
 
+import net.xstopho.resource_gamma_util.GammaConstants;
 import net.xstopho.resource_gamma_util.service.GammaService;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -13,6 +14,7 @@ public class CompatPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.equals("IrisMixin")) {
+            GammaConstants.LOGGER.info("Apply Iris Mixin");
             return GammaService.isModLoaded("iris");
         }
         return true;
