@@ -1,4 +1,4 @@
-package net.xstopho.resource_gamma_util.compat.mixins;
+package net.xstopho.resource_gamma_util.mixins.compat;
 
 import net.irisshaders.iris.Iris;
 import net.minecraft.client.Minecraft;

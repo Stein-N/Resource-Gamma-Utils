@@ -1,11 +1,11 @@
 package net.xstopho.resource_gamma_util.service;
 
-import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLLoader;
 
 public class ForgeGammaHelper implements IGammaHelper {
     @Override
     public boolean isModLoaded(String modId) {
-        return ModList.get().isLoaded(modId);
+        return FMLLoader.getLoadingModList().getModFileById(modId) != null;
     }
 
     @Override
