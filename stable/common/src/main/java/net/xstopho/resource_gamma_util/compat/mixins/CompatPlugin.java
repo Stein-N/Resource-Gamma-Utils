@@ -1,4 +1,4 @@
-package net.xstopho.resource_gamma_util.mixins;
+package net.xstopho.resource_gamma_util.compat.mixins;
 
 import net.xstopho.resource_gamma_util.GammaConstants;
 import net.xstopho.resource_gamma_util.service.GammaService;
@@ -17,7 +17,7 @@ public class CompatPlugin implements IMixinConfigPlugin {
             GammaConstants.LOGGER.info("Apply Iris Mixin");
             return GammaService.isModLoaded("iris");
         }
-        return true;
+        return false;
     }
 
     @Override

@@ -1,0 +1,93 @@
+plugins {
+    id 'loader'
+    id 'net.minecraftforge.gradle'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge}"
+}
+
+mixin {
+    config("${mod_id}.mixins.json")
+}
+
+
+jar {
+    manifest {
+        attributes([
+                'FMLCorePluginContainsFMLMod': 'true',
+                'MixinConfigs': "${mod_id}.mixins.json"
+        ])
+    }
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+    reobf = false
+
+    def directory = project.projectDir.parent.split("\\\\").last()
+
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
+
+    runs {
+        client {
+            workingDirectory file("../common/runs/client")
+            ideaModule "${rootProject.name}.${directory}.${project.name}.main"
+            taskName "Client"
+            mods {
+                modClientRun {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+tasks.named("compileJava", JavaCompile) {
+    exclude('**/compat/**')
+}
+
+tasks.named("javadoc", Javadoc) {
+    exclude('**/compat/**')
+}
+
+tasks.named("sourcesJar", Jar) {
+    exclude('**/compat/**')
+}
+
+processResources {
+    exclude 'resource_gamma_util.compat.mixins.json'
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'forge')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'forge')
+            }
+        }
+    }
+}
+
+publishMods {
+    file = jar.archiveFile
+    modLoaders.addAll("forge")
+}
